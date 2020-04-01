@@ -8,12 +8,17 @@
     "version": "2-0-0"
   },
   "type": "object",
-  "minProperties": 1,
   "propertyNames": {
     "pattern": "^iglu:.+"
   },
+  "minProperties": 1,
   "patternProperties": {
     "^iglu:": {
+      "$ref": "#/definitions/flow"
+    }
+  },
+  "definitions": {
+    "flow": {
       "type": "array",
       "items": {
         "type": "object",
@@ -45,11 +50,11 @@
           "conditions",
           "steps"
         ],
-        "additionalProperties": false
+        "additionalProperties": {
+          "type": "array"
+        }
       }
-    }
-  },
-  "definitions": {
+    },
     "op": {
       "type": "object",
       "properties": {
