@@ -267,7 +267,7 @@
               ],
               "additionalProperties": false
             },
-            "description": "Conditions required to apply steps for specific Bad Row type"
+            "description": "Steps to be applied for specific Bad Row type"
           }
         },
         "required": [
