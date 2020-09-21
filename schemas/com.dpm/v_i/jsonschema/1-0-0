@@ -1,0 +1,107 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "Schema for a v i event",
+  "self": {
+    "vendor": "com.dpm",
+    "name": "v_i",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "pub_id": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "width": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "height": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "adv_id": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "adv_nm": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "c_id": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "c_nm": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "pl_id": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "pl_nm": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "ad_id": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "ad_nm": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "ad_len": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "fw_caid": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "u_id": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "u_ip": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "v_id": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "v_nm": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "app_id": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "app_nm": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "dvc_typ": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "dvc_id": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "dvc_lat": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    },
+    "cb": {
+      "type": ["string", "null"],
+      "maxLength": 255
+    }
+  },
+  "minProperties":1,
+  "additionalProperties": false
+}
