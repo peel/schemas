@@ -1,0 +1,92 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "Runtime configuration for all services launched by an ECS task",
+  "self": {
+    "vendor": "com.snowplowanalytics.plg",
+    "name": "ecs_configuration",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+
+  "type": "object",
+
+  "properties": {
+    "agentConfiguration": {
+      "type": ["string", "null"],
+      "description": "Agent's resolved configuration. Source: custom MBean"
+    },
+    "agentImage": {
+      "type": ["string", "null"],
+      "maxLength": 200,
+      "description": "Agent container's image name. Source: ECS task metadata endpoint"
+    },
+    "agentImageId": {
+      "type": ["string", "null"],
+      "maxLength": 200,
+      "description": "Agent container's image ID. Source: ECS task metadata endpoint"
+    },
+    "agentJvmArgs": {
+      "type": ["string", "null"],
+      "maxLength": 10000,
+      "description": "Agent's runtime jvm input arguments, formatted as a json array of strings. Source: jmx / java.lang / RuntimeMBean"
+    },
+    "dbInitImage": {
+      "type": ["string", "null"],
+      "maxLength": 200,
+      "description": "DbInit container's image name. Source: ECS task metadata endpoint"
+    },
+    "dbInitImageId": {
+      "type": ["string", "null"],
+      "maxLength": 200,
+      "description": "DbInit container's image ID. Source: ECS task metadata endpoint"
+    },
+    "ecsCpuLimit": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 2147483647,
+      "description": "CPU limit for the ECS task. Source: ECS task metadata endpoint"
+    },
+    "ecsMemoryLimit": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 2147483647,
+      "description": "Memory limit for the ECS task in MB. Source: ECS task metadata endpoint"
+    },
+    "pipelineAvailableProcessors": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 2147483647,
+      "description": "Pipeline available processors to the jvm. Source: jmx / java.lang / RuntimeMBean"
+    },
+    "pipelineConfiguration": {
+      "type": ["string", "null"],
+      "description": "Pipeline's resolved configuration. Source: custom MBean"
+    },
+    "pipelineImage": {
+      "type": ["string", "null"],
+      "maxLength": 200,
+      "description": "Pipeline container's image name. Source: ECS task metadata endpoint"
+    },
+    "pipelineImageId": {
+      "type": ["string", "null"],
+      "maxLength": 200,
+      "description": "Pipeline container's image ID. Source: ECS task metadata endpoint"
+    },
+    "pipelineJvmArgs": {
+      "type": ["string", "null"],
+      "maxLength": 10000,
+      "description": "Pipeline's runtime jvm input arguments, formatted as a json array of strings. Source: jmx / java.lang / RuntimeMBean"
+    },
+    "ingressImage": {
+      "type": ["string", "null"],
+      "maxLength": 200,
+      "description": "Ingress container's image name. Source: ECS task metadata endpoint"
+    },
+    "ingressImageId": {
+      "type": ["string", "null"],
+      "maxLength": 200,
+      "description": "Ingress container's image ID. Source: ECS task metadata endpoint"
+    }
+  },
+  "additionalProperties": false
+}

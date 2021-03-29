@@ -1,0 +1,225 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "Agent heartbeat statistics",
+  "self": {
+    "vendor": "com.snowplowanalytics.plg",
+    "name": "agent_heartbeat",
+    "format": "jsonschema",
+    "version": "2-0-0"
+  },
+
+  "type": "object",
+
+  "properties": {
+    "agentContainerMemory": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "description": "Memory used by the agent container. Source: ECS task stats endpoint "
+    },
+    "agentContainerMemoryMax": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "description": "Maximum memory used by the agent container. Source: ECS task stats endpoint "
+    },
+    "badEventsLastFiveMinutes": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 2147483647,
+      "description": "Number of bad events received in the preceding 5 minutes. Source: jmx / custom MBean"
+    },
+    "badEventsLastFiveMinutesByType": {
+      "type": ["object", "null"],
+      "patternProperties": {
+        ".*": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+          }
+      },
+      "description": "Number of bad events received in the preceding 5 minutes, grouped by bad event type. Source: jmx / custom MBean"
+    },
+    "badEventsTotal": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "description": "Total number of bad events loaded into the database. Source: postgres / pg_stat_user_tables"
+    },
+    "collectorPayloadsLastFiveMinutes": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 2147483647,
+      "description": "Number of collector payloads handled by enrichment in the preceding 5 minutes. Source: jmx / custom MBean"
+    },
+    "dbUserActive": {
+      "type": ["boolean", "null"],
+      "description": "Whether user has queried postgres in the last heartbeat tick. Source: postgres / pg_stat_activity"
+    },
+    "dbUserApplications": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "string",
+        "maxLength": 200
+      },
+      "description": "Application used by the user to query the database. Source: postgres / pg_stat_activity"
+    },
+    "dbUserConnected": {
+      "type": ["boolean", "null"],
+      "description": "Whether user is connected to postgres. Source: postgres / pg_stat_activity"
+    },
+    "enrichedEventsLastFiveMinutes": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 2147483647,
+      "description": "Number of events successfully enriched in the preceding 5 minutes. Source: jmx / custom MBean"
+    },
+    "enrichedEventsLastFiveMinutesByDomain": {
+      "type": ["object", "null"],
+      "patternProperties": {
+        ".*": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+          }
+      },
+      "description": "Number of events successfully enriched in the preceding 5 minutes, grouped by domain. Source: jmx / custom MBean"
+    },
+    "enrichedEventsLastFiveMinutesByTracker": {
+      "type": ["object", "null"],
+      "patternProperties": {
+        ".*": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+          }
+      },
+      "description": "Number of events successfully enriched in the preceding 5 minutes, grouped by tracker. Source: jmx / cusom MBean"
+    },
+    "enrichedEventsLastFiveMinutesByType": {
+      "type": ["object", "null"],
+      "patternProperties": {
+        ".*": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+          }
+      },
+      "description": "Number of events successfully enriched in the preceding 5 minutes, grouped by event type. Source: jmx / custom MBean"
+    },
+    "goodEventsLastFiveMinutes": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 2147483647,
+      "description": "Number of good events received in the preceding 5 minutes. Source: jmx / custom MBean"
+    },
+    "goodEventsTotal": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "description": "Total number of good events loaded into the database. Source: postgres / pg_stat_user_tables"
+    },
+    "ingressContainerMemory": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "description": "Memory used by the ingress container. Source: ECS task stats endpoint "
+    },
+    "ingressContainerMemoryMax": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "description": "Maximum memory used by the ingress container. Source: ECS task stats endpoint "
+    },
+    "networkRxBytesPerSecond": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "description": "Network received bytes per second. Source: ECS task stats endpoint"
+    },
+    "networkTxBytesPerSecond": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "description": "Network transmitted bytes per second. Source: ECS task stats endpoint"
+    },
+    "pipelineContainerMemory": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "description": "Memory used by the pipeline container. Source: ECS task stats endpoint "
+    },
+    "pipelineContainerMemoryMax": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "description": "Maximum memory used by the pipeline container. Source: ECS task stats endpoint "
+    },
+    "pipelineGCCounts": {
+      "type": ["object", "null"],
+      "patternProperties": {
+        ".*": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+          }
+      },
+      "description": "Pipeline total number of of garbage collections, keyed by GC name. Source: jmx / GarbageCollectorMetricSet / *.count"
+    },
+    "pipelineGCTimes": {
+      "type": ["object", "null"],
+      "patternProperties": {
+        ".*": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+          }
+      },
+      "description": "Pipeline total elapsed time of garbage collections, keyed by GC name. Source: jmx / GarbageCollectorMetricSet / *.time"
+    },
+    "pipelineHeapAfterGC": {
+      "type": ["object", "null"],
+      "patternProperties": {
+        ".*": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9223372036854775807
+          }
+      },
+      "description": "Pipeline memory pool immediately after last garbage collection, keyed by pool name. Source: jmx / MemoryUsageGaugeSet / *.used-after-gc"
+    },
+    "pipelineHeapMemory": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "description": "Pipeline jvm heap memory used. Source: jmx / MemoryUsageGaugeSet / heap.used"
+    },
+    "pipelineNonHeapMemory": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "description": "Pipeline jvm non-heap memory used. Source: jmx / MemoryUsageGaugeSet / non-heap.used"
+    },
+    "pipelineThreads": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 2147483647,
+      "description": "Pipeline: number of threads. Source: jmx / CachedThreadStatesGaugeSet / count"
+    },
+    "pipelineUptime": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 9223372036854775807,
+      "description": "Pipeline uptime in milliseconds. Source: jmx / JvmAttributeGaugeSet / uptime"
+    },
+    "rateLimitedPayloadsLastFiveMinutes": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 2147483647,
+      "description": "Number of payloads from the preceding 5 minutes which were rejected by the pipeline because of a full internal queue. Source: jmx / custom MBean"
+    }
+  },
+  "additionalProperties": false
+}
+
+

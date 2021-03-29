@@ -1,0 +1,35 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "Agent stack instance",
+  "self": {
+    "vendor": "com.snowplowanalytics.plg",
+    "name": "stack",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+
+  "type": "object",
+
+  "properties": {
+    "instanceId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Uniquely identifies the ECS task instance. Changes across task set restarts."
+    },
+    "stackId": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Uniquely identifies the cloudformation stack. Consistent across task set restarts."
+    },
+    "region": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "The AWS region"
+    }
+  },
+
+  "required": ["instanceId", "stackId", "region"],
+
+  "additionalProperties": false
+}
+
